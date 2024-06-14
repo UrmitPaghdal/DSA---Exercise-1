@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q==3</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        let arr1 = [3, 12, 10, 8, 7];
+
+        function findSecondLargest(arr) {
+            if (arr.length < 2) {
+                return "Array length should be at least 2";
+            }
+
+            let firstLargest = arr[0];
+            let secondLargest = arr[1];
+
+            if (secondLargest > firstLargest) {
+                [firstLargest, secondLargest] = [secondLargest, firstLargest];
+            }
+
+            for (let i = 2; i < arr.length; i++) {
+                if (arr[i] > firstLargest) {
+                    secondLargest = firstLargest;
+                    firstLargest = arr[i];
+                } else if (arr[i] > secondLargest && arr[i] !== firstLargest) {
+                    secondLargest = arr[i];
+                }
+            }
+
+            return secondLargest;
+        }
+
+        console.log(findSecondLargest(arr1));
+    </script>
+</body>
+
+</html>
